@@ -1,3 +1,5 @@
 <!--pages/home/home.wxml-->
 <!-- 1.小程序的数据绑定 -->
 <view>Hello Jack平</view>
+<view>知识点2</view>
+<text>04548940530245.....</text>

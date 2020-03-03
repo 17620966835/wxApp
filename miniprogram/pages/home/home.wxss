@@ -1,0 +1,4 @@
+/* pages/home/home.wxss */
+view{
+  color:rgb(113, 160, 67);
+}

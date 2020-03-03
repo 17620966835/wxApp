@@ -1,3 +1,5 @@
 <!--pages/home/home.wxml-->
 <!-- 1.小程序的数据绑定 -->
 <view>Hello Jack平</view>
+<button>知识点1</button>
+<view>12345...</view>

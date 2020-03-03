@@ -1,6 +1,19 @@
 // pages/home/home.js
-Page({
+// getApp()获取app()产生的示例对象
+const app=getApp()
+// console.log(app.globalData.name);
+// console.log(app.globalData.age);
 
+// const name=app.globalData.name;
+// const age=app.globalData.age;
+
+
+// 注册一个页面
+// 页面也有自己的生命周期函数
+Page({
+  handleGetUserInfo(event){
+    console.log(event);
+  },
   /**
    * 页面的初始数据
    */
@@ -11,7 +24,8 @@ Page({
       {id:110,name:"远远",age:18},
       { id: 110, name: "平平",age:18 },
     ],
-    counter:0
+    counter:0,
+    list:[]
   },
   handleBtnClick(){
   //错误
@@ -25,11 +39,22 @@ Page({
     this.setData({
       counter:this.data.counter - 1
     })
-  },
+  }, 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('onLoad')
+    wx.request({
+      url:'http://123.207.32.32:8000/api/wh/recommend',
+      success:(res)=>{
+        console.log(res);
+        const data=res.data.data.list;
+        this.setData({
+          list:data
+        })
+      }
+    })
 
   },
 
@@ -41,7 +66,7 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面显示
+   * 生命周期函数--监听页面显示出来时
    */
   onShow: function () {
 

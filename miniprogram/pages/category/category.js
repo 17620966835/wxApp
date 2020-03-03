@@ -1,31 +1,13 @@
-// pages/home/home.js
+// pages/category/category.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    name:"jack平",
-    age:18,
-    students:[
-      {id:110,name:"远远",age:18},
-      { id: 110, name: "平平",age:18 },
-    ],
-    counter:0
+
   },
-  handleBtnClick(){
-  //错误
-    // this.data.count += 1;
-    // console.log(tis.data.counter)
-    this.setData({
-      counter:this.data.counter + 1
-    })
-  },
-  handleSubtraction(){
-    this.setData({
-      counter:this.data.counter - 1
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */

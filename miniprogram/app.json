@@ -1,6 +1,14 @@
 {
   "pages": [
-   "pages/home/home"
+    "pages/scroll/scroll",
+    "pages/input/input",
+    "pages/image/image",
+    "pages/view/view",
+    "pages/button/button",
+   "pages/home/home",
+   "pages/text/text"
+
+
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

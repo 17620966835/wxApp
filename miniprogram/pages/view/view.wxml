@@ -1,0 +1,13 @@
+<!--pages/view/view.wxml-->
+<text>pages/view/view.wxml</text>
+
+<!-- view的基本使用 -->
+<view class="box">哈哈哈</view>
+<view>呵呵呵</view>
+
+<!-- 2.hover-class:按下显示状态 -->
+<view class="box1" hover-class="hover-view" hover-stay-time="3">哈哈哈</view>
+
+<!-- hover-stop-propagation:阻止祖先组件的点击态 -->
+<view class="box2" hover-class="box2-hover">
+<view class="box1" hover-class="hover-view" hover-stay-time="3" hover-stop-propagation="true">哈哈哈</view></view>

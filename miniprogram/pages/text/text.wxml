@@ -1,0 +1,22 @@
+<!--pages/text/text.wxml-->
+<text>pages/text/text.wxml</text>
+<!-- 1.基本使用 -->
+<text>Hello World</text>
+<text>你好Jack平</text>
+
+<!-- 2.selecttable:true -->
+<!-- 默认情况下text文本长按是不能选中的 -->
+<text selectable="{{true}}">Hello CoderWhy</text>
+<text selectable>Hello CoderWhy</text>
+
+<!-- 3.space:决定文本大小 -->
+<!-- ensp:半个中文字符大小 -->
+<!-- emsp:一个中文字符大小 -->
+<text>Hello World</text>
+<text space="emsp">Hello World</text>
+<text space="nbsp">Hello World</text>
+<text space="ensp">Hello World</text>
+
+<!-- 4.decode属性:是否解码文本 -->
+<text decode="true">5 &gt; 3 </text>
+

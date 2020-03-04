@@ -1,0 +1,22 @@
+<!--pages/image/image.wxml-->
+<text>pages/image/image.wxml</text>
+
+<!-- 1.image可以单标签或者双标签 -->
+<!-- image组件默认有自己大小  320x240 -->
+<!-- image组件时一个行内块级元素（inline-block） -->
+<!-- <image />
+<text>哈哈哈</text> -->
+
+<!--2. src:本地地址/远程地址 -->
+<image src="https://goss.veer.com/creative/vcg/veer/800water/veer-152284967.jpg" />
+
+<!-- 补充：相册中的图片 -->
+<button bindtap="handleChooseAlbum">选中图片</button>
+<image src="{{imagePath}}" />
+
+<!-- 3.bindload:监听图片加载完成 -->
+<view>-------------------------------------------</view>
+<image wx:for="{{1}}" src="https://goss.veer.com/creative/vcg/veer/800water/veer-163457880.jpg" bindload="handleImageLoad" lazy-load/>
+
+<!-- 4.show-menu-by-longpress:长按图片出现识别小程序码 -->
+<image show-menu-by-longpress src="https://goss.veer.com/creative/vcg/veer/800water/veer-300178679.jpg" />

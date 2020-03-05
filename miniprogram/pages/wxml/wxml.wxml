@@ -1,0 +1,101 @@
+<!--pages/wxml/wxml.wxml-->
+<text>pages/wxml/wxml.wxml</text>
+<!-- wxml的格式 -->
+<!-- <view></view> -->
+<!-- <image/> -->
+
+<!-- 2.Mustache -> {{}} -->
+<view>{{message}}</view>
+<view>{{firstname}} {{lastname}}</view>
+<view>{{firstname+''+lastname}}</view>
+<view>{{age >=18 ?'成年':'未成年'}}</view>
+
+<view>{{nowTime}}</view>
+
+<view class="box {{isActive ? 'active' : '' }}">哈哈哈</view>
+<button size="mini" bindtap="handleSwitColor">切换颜色</button>
+
+<map class="map" longitude="116.11" latitude="39.6"></map>
+
+<view>---------------条件判断-------------</view>
+<!-- wx:if -->
+<button size="mini" bindtap="handleSwitchShow">切换显示</button>
+<view wx:if="{{isShow}}">哈哈哈</view>
+
+<!-- wx:elif/else -->
+<button size="mini" bindtap="handleIncrement">显示</button>
+<view>{{score}}</view>
+<view wx:if="{{score >=90}}">优秀</view>
+<view wx:elif="{{score >=80}}">良好</view>
+<view wx:elif="{{score >=60}}">及格</view>
+<view wx:else>不及格</view>
+
+<!-- hidden属性 -->
+<view hidden="{{false}}">我是hidden属性控制的内容</view>
+
+<!-- wx:if和hidden在隐藏组件时的区别 -->
+<!-- 
+  hidden：将一个组件隐藏起来时，该组件依然是存在（display:none）
+  wx:if:将组件隐藏起来时，该组件根本不存在（没有创建）
+  ⭐选择：
+  ①如果显示和隐藏切换的频率非常高，选择使用hidden
+  ②如果切换频率低，选择使用wx:if
+ -->
+<view>----------------------------------</view>
+<view hidden="{{true}}">hidden控制的内容</view>
+<view wx:if="{{false}}">wx:if控制的内容</view>
+
+<view>---列表渲染---</view>
+<!-- wx:for -->
+<!-- 1.1遍历数组/字符串/数字 -->
+<view wx:for="{{['abc','cba','nba']}}">{{item}} {{index}}</view>
+<view wx:for="coderwhy">{{item}} {{index}}</view>
+<view wx:for="{{9}}">{{item}}</view>
+
+<!-- block标签 -->
+<block wx:if="{{isShow}}">
+<button>按钮</button>
+<view>呵呵呵</view>
+<text>我是内容</text>
+</block>
+
+<block wx:for="{{3}}">
+<button>按钮</button>
+<view>呵呵呵</view>
+<text>我是内容</text>
+</block>
+
+<!-- item/index命名 -->
+<view wx:for="{{movies}}" wx:for-item="movie" wx:for-index="i">{{movie}} {{i}}</view>
+
+<block wx:for="{{nums}}" wx:for-item="inner_nums">
+<block wx:for="{{inner_nums}}">
+<view>{{item}}</view>
+</block>
+</block>
+
+<!-- key的作用:提高性能 -->
+<view wx:for="{{['a','b','c']}}" wx:key="i">{{item}}</view>
+<view class="container">
+<view wx:for="{{letters}}" wx:key="item">{{item}}</view>
+</view>
+
+<view>-----------template-----------------</view>
+<!-- 之前的小程序不支持自定义组件，为了进行代码的复用：template -->
+<!-- 模板中包裹的内容，在没用被使用前，是不会进行任何渲染的 -->
+<!-- <template name="contentItem">
+<button size="mini">{{btnText}}</button>
+<view>{{content}}</view>
+</template> -->
+<import src="/wxml/template.wxml" />
+
+<template is="contentItem" data="{{btnText:'按钮',content:'哈哈哈'}}"/>
+<template is="contentItem" data="{{btnText:'警告',content:'嘻嘻嘻'}}"/>
+<template is="contentItem" data="{{btnText:'点击',content:'嘿嘿嘿'}}"/>
+
+<!-- inclube src="绝对路径"  可以循环引入文件 -->
+<!-- <view>{{25.66666.toFixed(2)}}</view>    报错！！！ -->
+
+<view>{{25.6666666}}</view>
+
+

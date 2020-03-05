@@ -1,5 +1,8 @@
 {
   "pages": [
+    "pages/wxs/wxs",
+    "pages/wxml/wxml",
+    "pages/wxss/wxss",
    "pages/home/home"
   ],
   "window": {

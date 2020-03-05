@@ -1,0 +1,22 @@
+<!--pages/wxss/wxss.wxml-->
+<text>pages/wxss/wxss.wxml</text>
+<!-- 设置样式的三种方式 -->
+<!-- 1.行内（内联）样式 -->
+<view style="color:red;font-size:20px;">哈哈哈哈</view>
+
+<!-- 2.页面样式 -->
+<view class="box">hhhhhh</view>
+
+<!-- 3.全局样式 -->
+<view class="container">呵呵呵</view>
+
+<!-- 3种样式作用于同一种组件 -->
+<view style="background:red" class="content">嘻嘻嘻嘻嘻</view>
+
+<!-- wxss中的单位：rpx -->
+<!-- 前端也需要进行配置尺寸的适配:em/rem/vw/wh-->
+<view class="box1"></view>
+<view class="box2"></view>
+
+<view class="container1">哈哈哈哈</view>
+<view class="container2">呵呵呵呵</view>

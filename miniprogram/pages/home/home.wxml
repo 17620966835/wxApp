@@ -1,3 +1,35 @@
 <!--pages/home/home.wxml-->
 <!-- 1.小程序的数据绑定 -->
 <view>Hello Jack平</view>
+
+<!-- 1.事件处理的回顾 -->
+<button bindtap="btnClick" size="mini">按钮</button>
+<button bind:tap="btnClick" size="mini">按钮</button>
+<button catch:tap="btnClick" size="mini">按钮</button>
+
+<!-- 2.常见的一些事件 -->
+<view class="box" bind:touchstart="touchStart"
+                  bind:touchmove="touchMove"
+                  bind:touchend="touchEnd"
+                  bind:tap="Tap"
+                  bind:longpress="longPress"
+></view>
+
+<!-- 3.事件对象的分析 -->
+<button size="mini" bindtap="handleEventClick">事件对象</button>
+
+<!-- 4.事件的传递方式 -->
+<view class="container">
+  <block wx:for="{{titles}}" wx:key="index">
+  <view class="item" bindtap="handleItemClick" data-index="{{index}}" data-item="{{item}}">{{item}}</view>
+  </block>
+</view>
+
+<!-- 5.事件冒泡和事件捕获 -->
+<!-- bind:一层层传递 -->
+<!-- catch:阻止事件的进一步传递 -->
+<view class="view1" capture-bind:tap="handleCaptureView1" bindtap="handleBindView1">
+  <view class="view2" capture-bind:tap="handleCaptureView2" catchtap="handleBindView2">
+     <view class="view3" capture-bind:tap="handleCaptureView3" bindtap="handleBindView3"></view>
+  </view>
+</view>

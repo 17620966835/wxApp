@@ -1,0 +1,7 @@
+<!--components/my-multiple/my-multiple.wxml-->
+<text>components/my-multiple/my-multiple.wxml</text>
+<view>mslot组件的开始</view>
+<view class="slot1"><slot name="slot1"/></view>
+<view class="slot2"><slot name="slot2"/></view>
+<view class="slot3"><slot name="slot3"/></view>
+<view>mslot组件的结尾</view>

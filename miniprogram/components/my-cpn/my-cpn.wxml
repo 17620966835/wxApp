@@ -1,0 +1,8 @@
+<!--components/my-cpn/my-cpn.wxml-->
+<text>components/my-cpn/my-cpn.wxml</text>
+<view class="title">{{title}}</view>
+<view class="contet">我是自定义组件的内容</view>
+<cpn1 />
+
+
+

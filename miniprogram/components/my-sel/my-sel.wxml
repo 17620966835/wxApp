@@ -1,0 +1,3 @@
+<!--components/my-sel/my-sel.wxml-->
+<text>components/my-sel/my-sel.wxml</text>
+<view>组件内的计数：{{counter}}</view>

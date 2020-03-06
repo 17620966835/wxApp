@@ -1,7 +1,11 @@
 {
   "pages": [
-   "pages/home/home"
+   "pages/home/home",
+   "pages/about/about"
   ],
+  "usingComponents":{
+     "my-cpn":"/components/my-cpn/my-cpn"
+  },
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",

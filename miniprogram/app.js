@@ -1,20 +1,77 @@
 //app.js
+const TOKEN = 'token';
 App({
+  // 对象：小程序关闭掉
+  globalData:{
+    token:''
+  },
   onLaunch: function () {
-    
-    if (!wx.cloud) {
-      console.error('请使用 2.2.3 或以上的基础库以使用云能力')
-    } else {
-      wx.cloud.init({
-        // env 参数说明：
-        //   env 参数决定接下来小程序发起的云开发调用（wx.cloud.xxx）会默认请求到哪个云环境的资源
-        //   此处请填入环境 ID, 环境 ID 可打开云控制台查看
-        //   如不填则使用默认环境（第一个创建的环境）
-        // env: 'my-env-id',
-        traceUser: true,
+    // 1.先从缓存中取出token
+    const token=wx.getStorageSync(TOKEN);
+
+    // 2.判断token是否有值
+    if(token && token.length !== 0){//已经有token，验证token是否过期 
+      this.check_token(token)//验证token是否过期
+    }else{//没有token，进行登录操作
+      this.login()
+    }
+    },
+    check_token(token){
+      console.log('执行了token验证操作')
+      wx.request({
+        url:'http://123.207.32.32:3000/auth',
+        method:'post',
+        header:{
+          token
+        },
+        success:(res)=>{
+          // console.log(res)
+          if(!res.data.errCode){
+            console.log('token有效')
+            this.globalData.token=token;
+          }else{
+            this.login()
+          }
+        },
+        fail:(err)=>{
+          console.log(err)
+        }
       })
+    },
+    login(){
+      console.log('执行了登录操作')
+       //登录操作
+      wx.login({
+        //code只有5分钟的有效期
+        success: (res) => {
+          // console.log(res)
+          //1.获取code
+          const code = res.code;
+          // 2.将code发送到我们的服务器
+          wx.request({
+            url: 'http://123.207.32.32:3000/login',
+            method: "post",
+            data: {
+              code
+            },
+            success: (res) => {
+              // console.log(res)
+              //1.取出token
+              const token = res.data.token;
+
+              // 2.将token保存在globalData中
+              this.globalData.token = token;
+
+              // console.log(this.globalData.token)
+
+              // 3.进行本地存储
+              wx.setStorageSync(TOKEN, token)
+            }
+          })
+        },
+      })
+
     }
 
-    this.globalData = {}
-  }
+   
 })

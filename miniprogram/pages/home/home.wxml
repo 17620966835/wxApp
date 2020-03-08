@@ -1,3 +1,19 @@
 <!--pages/home/home.wxml-->
 <!-- 1.小程序的数据绑定 -->
 <view>Hello Jack平</view>
+<button>按钮</button>
+
+<!-- 1.toast -->
+<button size="mini" bind:tap="handleShowToast">ShowToast</button>
+
+<!-- 2.modal -->
+<button size="mini" bind:tap="handleShowModal">ShowModal</button>
+
+<!-- 3.Loading -->
+<button size="mini" bind:tap="handleShowLoading">ShowLoading</button>
+
+<!-- 3.actionSheet -->
+<button size="mini" bind:tap="handleShowAction">ShowAction</button>
+
+<!-- 5.分享按钮 -->
+<button size="mini" open-type="share">分享</button>

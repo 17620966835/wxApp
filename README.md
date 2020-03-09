@@ -6,7 +6,7 @@
 二.首页完成
 2.1轮播图
 1.请求轮播图相关的数据
-   http://123.207.32.32:8000/api/wh/home/multidata
+   
 2.通过swiper和swipet-item展示轮播图
 
 2.2推荐数据

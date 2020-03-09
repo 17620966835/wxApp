@@ -1,0 +1,12 @@
+ <!--components/w-tab-control/w-tab-control.wxml-->
+<!-- <text>components/w-tab-control/w-tab-control.wxml</text> --> 
+<!-- 4.数据展示 / w-tab-control -->
+<view class="tab-control">
+  <block wx:for="{{titles}}" wx:key="index">
+    <view class="tab-item {{currentIndex == index ? 'active':'' }}"
+          bindtap="tabClick"
+          data-index="{{index}}">
+      <text>{{item}}</text>
+    </view>
+  </block>
+</view>

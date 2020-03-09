@@ -1,3 +1,22 @@
 <!--pages/home/home.wxml-->
-<!-- 1.小程序的数据绑定 -->
-<view>Hello Jack平</view>
+<!-- 1.展示轮播图 / w-swiper首页子组件-->
+<w-swiper list="{{banners}}" />
+
+<!-- 2.推荐数据展示 / w-recommend -->
+<w-recommend recommends="{{recommends}}" bind:imageload="handleImageLoad" />
+
+<!-- 3.展示本周流行 / w-popular-->
+<w-popular />
+
+<!-- 4.数据展示 / w-tab-control -->
+<w-tab-control titles="{{titles}}"
+                bind:tabclick="handleTabClick" 
+                class="{{isTabFixed ? 'fixed':''}}" id="tab-control" />
+<w-tab-control title="{{titles}}" wx:if="{{isTabFixed}}" />
+
+<!-- 5.展示商品数据  /w-goods-item /w-goods-->
+<w-goods goods="{{goods[currentType].list}}" />
+
+<!-- 6.回到顶部  /w-back-top -->
+<!-- hidden:hidden属于对于自定义的组件是无效的 -->
+<w-back-top wx:if="{{showBackTop}}" />
